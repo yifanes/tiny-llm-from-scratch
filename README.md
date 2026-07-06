@@ -68,3 +68,4 @@ uv run python --version
 
 - `docs/concepts/training-data-to-samples.md`: 解释训练数据如何变成训练样本，以及模型如何通过 loss 更新权重。
 - `docs/concepts/minimal-training-loop.md`: 解释第一版 Bigram 最小训练闭环。
+- `docs/concepts/checkpoint-and-generation.md`: 解释 checkpoint、权重加载和生成之间的关系。

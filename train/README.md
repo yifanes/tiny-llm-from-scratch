@@ -34,3 +34,18 @@ train.bin/val.bin
 
 Bigram 模型只根据当前 token 预测下一个 token，不具备 Transformer 的上下文建模能力。它的价值是帮助我们先看懂训练程序。
 
+## Generate From Checkpoint
+
+训练后可以单独加载 checkpoint 生成文本：
+
+```bash
+uv run python train/sample_bigram.py --max-new-tokens 200
+```
+
+这一步不使用 `train.bin` 更新权重，只使用：
+
+```text
+BigramLanguageModel
+checkpoints/bigram.pt
+data/tokenizer.json
+```
