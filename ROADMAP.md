@@ -8,7 +8,7 @@
 
 ## Phase 1: Data And Tokenizer
 
-- [ ] 准备最小训练语料
+- [x] 准备最小训练语料
 - [ ] 实现字符级 tokenizer
 - [ ] 将文本转换为 token ids
 - [ ] 构造训练集和验证集
@@ -58,4 +58,3 @@
 
 - [ ] 实现 CLI chat
 - [ ] 实现简单 Web chat
-
