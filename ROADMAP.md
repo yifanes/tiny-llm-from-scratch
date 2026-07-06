@@ -15,6 +15,7 @@
 
 ## Phase 2: Training Tiny GPT
 
+- [x] 实现最小训练闭环 Bigram 模型
 - [ ] 实现 token embedding 和 position embedding
 - [ ] 实现 causal self-attention
 - [ ] 实现 MLP、LayerNorm、Residual

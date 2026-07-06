@@ -53,6 +53,8 @@ uv run python data/prepare.py
 ```text
 Python 3.12.11
 numpy 2.5.1
+torch 2.12.1
+torch.backends.mps.is_available() = True
 ```
 
 验证命令：
@@ -60,4 +62,5 @@ numpy 2.5.1
 ```bash
 uv run python --version
 uv run python -c "import numpy as np; print(np.__version__)"
+uv run python -c "import torch; print(torch.__version__)"
 ```
