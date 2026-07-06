@@ -49,3 +49,35 @@ BigramLanguageModel
 checkpoints/bigram.pt
 data/tokenizer.json
 ```
+
+## Tiny GPT
+
+训练一个最小 GPT：
+
+```bash
+uv run python train/tiny_gpt.py --max-iters 300
+```
+
+为了快速验证，也可以用更小配置：
+
+```bash
+uv run python train/tiny_gpt.py \
+  --max-iters 100 \
+  --batch-size 8 \
+  --block-size 32 \
+  --n-embd 64 \
+  --n-head 4 \
+  --n-layer 2
+```
+
+Tiny GPT 相比 Bigram 增加了：
+
+```text
+token embedding
+position embedding
+causal self-attention
+MLP
+LayerNorm
+residual connection
+lm_head
+```

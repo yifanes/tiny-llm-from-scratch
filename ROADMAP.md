@@ -16,12 +16,12 @@
 ## Phase 2: Training Tiny GPT
 
 - [x] 实现最小训练闭环 Bigram 模型
-- [ ] 实现 token embedding 和 position embedding
-- [ ] 实现 causal self-attention
-- [ ] 实现 MLP、LayerNorm、Residual
-- [ ] 实现训练循环
-- [ ] 保存 PyTorch checkpoint
-- [ ] 用 PyTorch 版本生成文本
+- [x] 实现 token embedding 和 position embedding
+- [x] 实现 causal self-attention
+- [x] 实现 MLP、LayerNorm、Residual
+- [x] 实现训练循环
+- [x] 保存 PyTorch checkpoint
+- [x] 用 PyTorch 版本生成文本
 
 ## Phase 3: Weight Export
 
