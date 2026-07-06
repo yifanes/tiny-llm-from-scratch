@@ -63,3 +63,7 @@ uv run python --version
 ```
 
 更多说明见 `docs/environment.md`。
+
+## Learning Notes
+
+- `docs/concepts/training-data-to-samples.md`: 解释训练数据如何变成训练样本，以及模型如何通过 loss 更新权重。
