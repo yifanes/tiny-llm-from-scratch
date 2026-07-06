@@ -14,9 +14,10 @@ exports/
 *.pth
 *.bin
 *.safetensors
+!data/train.bin
+!data/val.bin
 
 # Local files
 .DS_Store
 .env
 .env.*
-

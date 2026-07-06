@@ -9,9 +9,9 @@
 ## Phase 1: Data And Tokenizer
 
 - [x] 准备最小训练语料
-- [ ] 实现字符级 tokenizer
-- [ ] 将文本转换为 token ids
-- [ ] 构造训练集和验证集
+- [x] 实现字符级 tokenizer
+- [x] 将文本转换为 token ids
+- [x] 构造训练集和验证集
 
 ## Phase 2: Training Tiny GPT
 

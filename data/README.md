@@ -24,3 +24,25 @@ data/val.bin
 - 主题集中在大模型学习
 - 混合普通短文、问答格式、用户/助手格式
 - 目标是让 tiny GPT 学到文本风格和固定格式
+
+## Prepare Tokens
+
+运行：
+
+```bash
+uv run python data/prepare.py
+```
+
+脚本会生成：
+
+```text
+data/tokenizer.json
+data/train.bin
+data/val.bin
+```
+
+第一版使用字符级 tokenizer：
+
+```text
+文本字符 <-> token id
+```
