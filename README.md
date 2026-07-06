@@ -53,3 +53,13 @@ docs/       学习日志和知识梳理
 
 Day 001: 项目启动，明确学习路线和仓库结构。
 
+## Environment
+
+本项目使用 `uv` 管理 Python 环境和依赖。
+
+```bash
+uv sync
+uv run python --version
+```
+
+更多说明见 `docs/environment.md`。
