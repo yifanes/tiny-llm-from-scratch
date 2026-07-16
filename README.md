@@ -51,7 +51,39 @@ docs/       学习日志和知识梳理
 
 ## Current Status
 
-Day 001: 项目启动，明确学习路线和仓库结构。
+Phase 0-7 已全部跑通：字符级数据准备、Tiny GPT 训练、权重导出、纯 NumPy
+推理、采样与 KV cache、OpenAI 风格 API、CLI/Web 客户端。
+
+NumPy forward 已与 PyTorch checkpoint 对齐，当前测试模型的 logits 最大绝对误差
+约为 `4.3e-6`。
+
+## Run The Complete Chain
+
+导出当前 checkpoint：
+
+```bash
+uv run --group train python export/export_weights.py
+```
+
+启动 API：
+
+```bash
+uv run --group server uvicorn server.app:app --reload
+```
+
+另开终端启动 CLI：
+
+```bash
+uv run python -m client.chat
+```
+
+或者启动 Web 客户端：
+
+```bash
+uv run python -m http.server 8080 --directory client
+```
+
+然后访问 `http://127.0.0.1:8080/web.html`。
 
 ## Environment
 

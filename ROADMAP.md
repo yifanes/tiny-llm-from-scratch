@@ -25,37 +25,37 @@
 
 ## Phase 3: Weight Export
 
-- [ ] 固化 config.json
-- [ ] 固化 tokenizer.json
-- [ ] 导出模型权重
-- [ ] 记录每个权重 tensor 的 shape 和含义
+- [x] 固化 config.json
+- [x] 固化 tokenizer.json
+- [x] 导出模型权重
+- [x] 记录每个权重 tensor 的 shape 和含义
 
 ## Phase 4: Inference Engine
 
-- [ ] 用 Numpy 加载权重
-- [ ] 实现 embedding lookup
-- [ ] 实现 LayerNorm
-- [ ] 实现 matmul、attention、MLP
-- [ ] 对齐 PyTorch forward 输出
-- [ ] 实现逐 token 生成
+- [x] 用 Numpy 加载权重
+- [x] 实现 embedding lookup
+- [x] 实现 LayerNorm
+- [x] 实现 matmul、attention、MLP
+- [x] 对齐 PyTorch forward 输出
+- [x] 实现逐 token 生成
 
 ## Phase 5: Generation Features
 
-- [ ] 实现 temperature
-- [ ] 实现 top-k sampling
-- [ ] 实现 top-p sampling
-- [ ] 实现 KV cache
+- [x] 实现 temperature
+- [x] 实现 top-k sampling
+- [x] 实现 top-p sampling
+- [x] 实现 KV cache
 
 ## Phase 6: OpenAI-Compatible API
 
-- [ ] 实现 `POST /v1/chat/completions`
-- [ ] 支持 `messages`
-- [ ] 支持 `temperature`
-- [ ] 支持 `max_tokens`
-- [ ] 支持非流式响应
-- [ ] 支持流式响应
+- [x] 实现 `POST /v1/chat/completions`
+- [x] 支持 `messages`
+- [x] 支持 `temperature`
+- [x] 支持 `max_tokens`
+- [x] 支持非流式响应
+- [x] 支持流式响应
 
 ## Phase 7: Client
 
-- [ ] 实现 CLI chat
-- [ ] 实现简单 Web chat
+- [x] 实现 CLI chat
+- [x] 实现简单 Web chat

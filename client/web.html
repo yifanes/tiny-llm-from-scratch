@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TinyGPT Chat</title>
+  <style>
+    :root { color-scheme: light; font-family: ui-sans-serif, system-ui, sans-serif; background: #f4f5f7; color: #202124; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; grid-template-rows: 56px 1fr; }
+    header { background: #202124; color: white; display: flex; align-items: center; padding: 0 24px; font-weight: 650; }
+    main { width: min(820px, 100%); margin: 0 auto; min-height: 0; display: grid; grid-template-rows: 1fr auto; padding: 20px; gap: 14px; }
+    #messages { overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 2px; }
+    .message { max-width: 82%; padding: 10px 12px; border-radius: 8px; white-space: pre-wrap; line-height: 1.5; }
+    .user { align-self: flex-end; background: #1769aa; color: white; }
+    .assistant { align-self: flex-start; background: white; border: 1px solid #d8dbe0; }
+    form { display: grid; grid-template-columns: 1fr 44px; gap: 8px; }
+    textarea { resize: none; min-height: 48px; max-height: 160px; border: 1px solid #afb4bc; border-radius: 6px; padding: 12px; font: inherit; }
+    button { border: 0; border-radius: 6px; background: #1769aa; color: white; font-size: 20px; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: wait; }
+  </style>
+</head>
+<body>
+  <header>TinyGPT</header>
+  <main>
+    <div id="messages" aria-live="polite"></div>
+    <form id="form"><textarea id="input" aria-label="Message" placeholder="Message TinyGPT" required></textarea><button title="Send" aria-label="Send">&#8593;</button></form>
+  </main>
+  <script>
+    const endpoint = 'http://127.0.0.1:8000/v1/chat/completions';
+    const history = [], list = document.querySelector('#messages'), form = document.querySelector('#form'), input = document.querySelector('#input'), send = form.querySelector('button');
+    function bubble(role, text) { const node = document.createElement('div'); node.className = `message ${role}`; node.textContent = text; list.append(node); list.scrollTop = list.scrollHeight; return node; }
+    form.addEventListener('submit', async event => {
+      event.preventDefault(); const text = input.value.trim(); if (!text) return;
+      history.push({role: 'user', content: text}); bubble('user', text); input.value = ''; send.disabled = true;
+      const answer = bubble('assistant', '');
+      try {
+        const response = await fetch(endpoint, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({model: 'tiny-gpt', messages: history, stream: false, temperature: .8, max_tokens: 64})});
+        const data = await response.json(); if (!response.ok) throw new Error(data.detail || response.statusText);
+        answer.textContent = data.choices[0].message.content; history.push({role: 'assistant', content: answer.textContent});
+      } catch (error) { answer.textContent = `Request failed: ${error.message}`; }
+      finally { send.disabled = false; input.focus(); }
+    });
+  </script>
+</body>
+</html>
